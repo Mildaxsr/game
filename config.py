@@ -1,3 +1,5 @@
+import pygame
+
 # Параметры окна
 WIDTH, HEIGHT = 800, 600
 FPS = 60
@@ -23,3 +25,8 @@ BRICK_WIDTH = 75
 BRICK_HEIGHT = 30
 BRICK_ROWS = 8
 BRICK_COLS = 11
+
+# Создание окна
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Bounce & Smash")
+clock = pygame.time.Clock()
