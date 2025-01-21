@@ -7,10 +7,12 @@ import sys
 def main_menu():
     running = True
     font = pygame.font.SysFont("Colibri", 48)
-
+    pygame.mixer.init()
     background = pygame.image.load("assets/background.jpg")
     background = pygame.transform.scale(background, (WIDTH, HEIGHT))
-
+    pygame.mixer.music.load("assets/background_music.mp3")
+    pygame.mixer.music.play(-1)
+    sound = pygame.mixer.Sound("assets/sound_button.wav")
     while running:
         screen.blit(background, (0, 0))
 
@@ -43,11 +45,16 @@ def main_menu():
         if play_button.collidepoint(mouse_pos):
             pygame.draw.rect(screen, GREEN, play_button, 2)  # Подсветка кнопки
             if mouse_click[0]:  # ЛКМ
+                pygame.mixer.music.stop()
+                sound.play()
+                pygame.time.wait(int(sound.get_length() * 1000))
                 return  # Переход в игру
 
         if quit_button.collidepoint(mouse_pos):
             pygame.draw.rect(screen, GREEN, quit_button, 2)  # Подсветка кнопки
             if mouse_click[0]:  # ЛКМ
+                sound.play()
+                pygame.time.wait(int(sound.get_length() * 1000))
                 pygame.quit()
                 sys.exit()
 
