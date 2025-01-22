@@ -12,7 +12,7 @@ class Brick:
 
 def create_bricks():
     bricks = []
-    for row in range(BRICK_ROWS):
+    for row in range(1, BRICK_ROWS):
         for col in range(BRICK_COLS):
             x = col * (BRICK_WIDTH + 5) + 20
             y = row * (BRICK_HEIGHT + 5) + 20
