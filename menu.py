@@ -6,8 +6,6 @@ def game_over_screen():
     running = True
     font = pygame.font.SysFont("Colibri", 48)
     pygame.mixer.init()
-    background = pygame.image.load("assets/game_over.png")
-    background = pygame.transform.scale(background, (WIDTH, HEIGHT))
     sound = pygame.mixer.Sound("assets/sound_lose.mp3")
 
     sound.play()
@@ -45,6 +43,7 @@ def game_over_screen():
 
         pygame.display.flip()
         clock.tick(FPS)
+
 
 def game_loop():
     for _ in range(300):
